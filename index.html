@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FRAME – Framework for Reimagining Arts and Museum Engagement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<header><a href="#/" aria-label="FRAME home"><img class="logo" data-img="site.logo_main" alt="FRAME – Framework for Reimagining Arts and Museum Engagement"></a>
+<nav aria-label="Main"><a href="#/" data-nav="home">The Project</a><a href="#/first-edition" data-nav="ed" data-c="site.edition_nav_label"></a><a href="#/blog" data-nav="blog">Blog</a><a href="#/team" data-nav="team">Team &amp; Partners</a></nav></header>
+<main id="top">
+
+<div data-page="home">
+<section><div class="wrap hero"><div class="band" aria-hidden="true"></div>
+<img class="logo big" data-img="site.logo_main" alt="">
+<h1 data-c="home.hero_title"></h1><p data-c="home.hero_text"></p>
+<div><a class="btn" href="#/first-edition" data-c="home.hero_button"></a></div></div></section>
+<section class="frame-q"><div class="wrap"><h2 data-c="home.question_heading"></h2>
+<blockquote data-c="home.question"></blockquote>
+<div class="two" style="margin-top:3rem"><div class="lede" data-c="home.question_left" data-p></div><div class="lede" data-c="home.question_right" data-p></div></div></div></section>
+<section><div class="wrap"><h2 data-c="home.phases_heading"></h2><ol class="phases" id="phases"></ol><p class="open" data-c="home.phases_note"></p></div></section>
+<section style="background:var(--paper)"><div class="wrap two"><h2 data-c="home.editions_heading"></h2><div><p class="lede" data-c="home.editions_text"></p><a class="btn" href="#/first-edition" data-c="home.editions_button"></a></div></div></section>
+</div>
+
+<div data-page="ed">
+<div class="sub"><a href="#/first-edition" data-sub="ed">Overview</a><a href="#/first-edition/interventions" data-sub="int">Interventions</a></div>
+<section class="frame-q"><div class="wrap"><h1 style="font-size:clamp(2.2rem,6vw,4.6rem);color:var(--rust);max-width:16ch" data-c="edition.title"></h1>
+<div class="lede" style="margin-top:1.5rem" data-c="edition.intro" data-p></div>
+<div class="lede" style="margin-top:1.5rem" data-c="edition.museum_text" data-p></div></div></section>
+<section><div class="wrap two"><h2 data-c="edition.method_heading"></h2><div class="lede" data-c="edition.method_text" data-p></div></div></section>
+<section style="background:var(--paper)"><div class="wrap"><h2 data-c="edition.timeline_heading"></h2><ul class="tl" id="timeline"></ul></div></section>
+<section class="out"><div class="wrap"><h2 data-c="edition.outcomes_heading"></h2><ul id="outcomes"></ul>
+<p style="margin-top:2rem"><a class="btn" style="background:var(--mustard);color:#1B2641" href="#/first-edition/interventions">Explore the three interventions</a></p></div></section>
+<section><div class="wrap"><div class="support"><img data-img="site.logo_gt" alt="Going Together: For Youth Creativity and Well-Being"><p data-c="edition.support_text"></p></div></div></section>
+</div>
+
+<div data-page="outcome"><section class="frame-q"><div class="wrap"><a class="back" href="#/first-edition">Back to the First Edition</a>
+<h1 id="oc-t" style="font-size:clamp(2.2rem,6vw,4.6rem);color:var(--rust);max-width:16ch"></h1>
+<div class="lede" id="oc-d" style="margin-top:1.5rem"></div>
+<p style="margin-top:1.5rem"><a class="btn" id="oc-l" href="#">Open</a><span class="note" id="oc-s">Coming soon.</span></p></div></section></div>
+
+<div data-page="int">
+<div class="sub"><a href="#/first-edition" data-sub="ed">Overview</a><a href="#/first-edition/interventions" data-sub="int">Interventions</a></div>
+<section style="background:var(--paper)"><div class="wrap"><h1 style="font-size:clamp(2.2rem,6vw,4.6rem);color:var(--rust);max-width:14ch" data-c="interventions.heading"></h1>
+<p class="lede" style="margin-top:1.5rem" data-c="interventions.intro"></p><div class="cards" id="int-cards"></div></div></section>
+</div>
+
+<div data-page="exploria"><div class="sub"><a href="#/first-edition">Overview</a><a href="#/first-edition/interventions" aria-current="page">Interventions</a></div>
+<section><div class="wrap"><a class="back" href="#/first-edition/interventions">All interventions</a>
+<h1 style="font-size:clamp(2.2rem,6vw,4.6rem);color:var(--rust)" data-c="interventions.exploria_name"></h1>
+<p class="lede" style="margin-top:1.5rem" data-c="interventions.exploria_intro"></p>
+<p class="note" data-c="exploria.art_movement"></p>
+<h2 style="font-size:2rem;margin-top:3rem" data-c="exploria.artists_heading"></h2><div class="cards" id="artist-cards"></div></div></section></div>
+
+<div data-page="artist"><section><div class="wrap"><a class="back" href="#/first-edition/interventions/exploria">All artists</a>
+<h1 id="ar-n" style="font-size:clamp(2.2rem,6vw,4.6rem);color:var(--rust)"></h1><p class="meta" id="ar-y"></p>
+<img id="ar-i" alt="" style="max-width:420px;width:100%;margin:1.5rem 0" hidden>
+<div class="lede" id="ar-b"></div><h2 style="font-size:1.6rem;margin-top:2rem" id="ar-fh">What the team found</h2><div class="lede" id="ar-f"></div>
+<h2 style="font-size:1.6rem;margin-top:2rem" id="ar-sh">Sources</h2><div class="lede" id="ar-s"></div></div></section></div>
+
+<div data-page="guzur"><div class="sub"><a href="#/first-edition">Overview</a><a href="#/first-edition/interventions" aria-current="page">Interventions</a></div>
+<section><div class="wrap"><a class="back" href="#/first-edition/interventions">All interventions</a>
+<h1 style="font-size:clamp(2.2rem,6vw,4.6rem);color:var(--rust)" data-c="interventions.guzur_name"></h1>
+<p class="lede" style="margin-top:1.5rem" data-c="interventions.guzur_intro"></p>
+<div class="tabs" id="gz-tabs" role="group" aria-label="Routes"></div>
+<div class="gz"><div class="plan2" id="gz-plan"></div>
+<div><div id="gz-art"></div><h3 id="gz-t"></h3><p class="by" id="gz-a"></p><p class="note" id="gz-m"></p>
+<audio controls id="gz-au" aria-label="Audio narration" hidden></audio><p class="note" id="gz-noau">Audio narration coming soon.</p>
+<div class="lede" id="gz-x" style="margin-bottom:1rem"></div>
+<div class="nav2"><button id="gz-p">Back</button><button class="go" id="gz-n">Next</button></div>
+<p class="ok" id="gz-done" style="margin-top:1rem">You have finished this route.</p></div></div>
+<h2 style="font-size:2rem;margin-top:3rem">Suggest an addition</h2>
+<form class="fm nf" name="route-suggestion" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="margin-top:1rem"><input type="hidden" name="form-name" value="route-suggestion"><p hidden><label>Leave empty <input name="bot-field"></label></p>
+<label>What would you like to suggest?<select name="type"><option>Add an artwork to a route</option><option>A new route</option></select></label><label>Your idea<textarea name="idea" rows="3" required></textarea></label><label>Your name (optional)<input name="name"></label><button class="go">Send suggestion</button><div class="ok" role="status"></div></form></div></section></div>
+
+<div data-page="robit"><div class="sub"><a href="#/first-edition">Overview</a><a href="#/first-edition/interventions" aria-current="page">Interventions</a></div>
+<section><div class="wrap"><a class="back" href="#/first-edition/interventions">All interventions</a>
+<h1 style="font-size:clamp(2.2rem,6vw,4.6rem);color:var(--rust)" data-c="interventions.robit_name"></h1>
+<p class="lede" style="margin-top:1.5rem" data-c="interventions.robit_intro"></p>
+<div class="tabs" id="rb-tabs" role="group" aria-label="Application type"><button aria-pressed="true" data-f="mentor">I’m a mentor</button><button aria-pressed="false" data-f="student">I’m a student</button></div>
+<form class="fm nf" id="rb-mentor" name="mentor-application" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="mentor-application"><p hidden><label>Leave empty <input name="bot-field"></label></p>
+<label>Full name<input name="name" required></label><label>Email<input name="email" type="email" required></label><label>Field and experience<textarea name="experience" rows="3" required></textarea></label><label>Skills you can teach<textarea name="skills" rows="3" required></textarea></label><button class="go">Apply as a mentor</button><div class="ok" role="status"></div></form>
+<form class="fm nf" id="rb-student" name="student-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden><input type="hidden" name="form-name" value="student-application"><p hidden><label>Leave empty <input name="bot-field"></label></p>
+<label>Full name<input name="name" required></label><label>Email<input name="email" type="email" required></label><label>University or field of study<input name="study"></label><label>Skills you want to learn<textarea name="skills" rows="3" required></textarea></label><button class="go">Apply as a student</button><div class="ok" role="status"></div></form></div></section></div>
+
+<div data-page="blog"><section><div class="wrap"><h1 style="font-size:clamp(2.2rem,6vw,4.6rem);color:var(--rust)" data-c="blog_page.heading"></h1>
+<p class="lede" style="margin-top:1.5rem" data-c="blog_page.intro"></p><div class="cards" id="post-cards"></div>
+<h2 style="font-size:2rem;margin-top:3rem" data-c="blog_page.submit_heading"></h2><p class="lede" data-c="blog_page.submit_text"></p>
+<form class="fm nf" name="blog-submission" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="margin-top:1rem"><input type="hidden" name="form-name" value="blog-submission"><p hidden><label>Leave empty <input name="bot-field"></label></p>
+<label>Your name<input name="name" required></label><label>Email<input name="email" type="email" required></label><label>Title<input name="title" required></label><label>Your text<textarea name="text" rows="6" required></textarea></label><button class="go">Submit for review</button><div class="ok" role="status"></div></form></div></section></div>
+
+<div data-page="post"><section><div class="wrap"><a class="back" href="#/blog">All posts</a><h1 id="po-t" style="font-size:clamp(2rem,5.5vw,4rem);color:var(--rust);max-width:20ch"></h1><p class="meta" id="po-m"></p>
+<img id="po-i" alt="" style="max-width:720px;width:100%;margin:1rem 0" hidden><div class="postbody" id="po-b"></div></div></section></div>
+
+<div data-page="team"><section><div class="wrap"><h1 style="font-size:clamp(2.2rem,6vw,4.6rem);color:var(--rust)" data-c="team.heading"></h1>
+<div class="lede" style="margin-top:1.5rem" data-c="team.intro" data-p></div>
+<h2 style="font-size:2rem;margin-top:2.5rem" data-c="team.members_heading" id="tm-h"></h2><div class="partners" id="members"></div>
+<h2 style="font-size:2rem;margin-top:2.5rem">Partners</h2><div class="partners" id="partners"></div></div></section></div>
+</main>
+<footer><div class="row"><img class="logo" style="height:56px" data-img="site.logo_main" alt="FRAME"><p data-c="site.footer_text"></p></div></footer>
+<script src="script.js"></script>
+</body></html>
