@@ -29,7 +29,7 @@ function gz(){var rt=(C.guzur.routes||[])[r];if(!rt)return;var st=rt.stops||[],s
  var box=$('#gz-plan');box.textContent='';
  if(C.guzur.floor_plan){var im=E('img');im.src=C.guzur.floor_plan;im.alt='Museum floor plan';box.appendChild(im)}else box.appendChild(E('div','empty','Floor plan: upload it in the admin page'));
  var NS='http://www.w3.org/2000/svg',sv=document.createElementNS(NS,'svg');sv.setAttribute('viewBox','0 0 100 100');sv.setAttribute('preserveAspectRatio','none');
- var pl=document.createElementNS(NS,'polyline');pl.setAttribute('points',st.map(function(p){return p.x+','+p.y}).join(' '));pl.setAttribute('fill','none');pl.setAttribute('stroke','#B23E17');pl.setAttribute('stroke-width','3');pl.setAttribute('stroke-dasharray','6 5');pl.setAttribute('vector-effect','non-scaling-stroke');sv.appendChild(pl);box.appendChild(sv);
+ var pl=document.createElementNS(NS,'polyline');pl.setAttribute('points',st.map(function(p){return p.x+','+p.y}).join(' '));pl.setAttribute('fill','none');pl.style.stroke='var(--rust)';pl.setAttribute('stroke-width','3');pl.setAttribute('stroke-dasharray','6 5');pl.setAttribute('vector-effect','non-scaling-stroke');sv.appendChild(pl);box.appendChild(sv);
  st.forEach(function(p,k){var b=E('button','pt'+(k===i?' cur':''),k+1);b.style.left=p.x+'%';b.style.top=p.y+'%';b.setAttribute('aria-label','Stop '+(k+1)+': '+p.title);b.onclick=function(){i=k;gz()};box.appendChild(b)});
  var art=$('#gz-art');art.textContent='';if(s.image){var a=E('img','aw');a.src=s.image;a.alt=s.title||'';art.appendChild(a)}else art.appendChild(E('div','art','Artwork image'));
  $('#gz-t').textContent=s.title||'';$('#gz-a').textContent=s.artist||'';$('#gz-m').textContent=rt.name+', stop '+(i+1)+' of '+st.length;
@@ -49,12 +49,18 @@ function route(){var h=location.hash.replace('#','')||'/',p=P[h],m;
  $$('[data-nav]').forEach(function(x){x.dataset.nav===n?x.setAttribute('aria-current','page'):x.removeAttribute('aria-current')});
  $$('[data-sub]').forEach(function(x){x.dataset.sub===p?x.setAttribute('aria-current','page'):x.removeAttribute('aria-current')});
  window.scrollTo(0,0)}
+function theme(){var T=C.site.theme||{},R=document.documentElement.style,M={color_bg:'--cream',color_soft:'--paper',color_dark:'--navy',color_accent:'--rust',color_teal:'--teal',color_gold:'--mustard',color_sand:'--sand'},seen={};
+ Object.keys(M).forEach(function(k){if(/^#[0-9a-f]{3,8}$/i.test(T[k]||''))R.setProperty(M[k],T[k])});
+ [['font_ui','--font-ui','system-ui,sans-serif','Bricolage Grotesque'],['font_serif','--font-serif','Georgia,serif','Newsreader']].forEach(function(f){var n=T[f[0]];if(!n||!/^[\w ]+$/.test(n))return;R.setProperty(f[1],'"'+n+'",'+f[2]);if(n!==f[3]&&!seen[n]){seen[n]=1;var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+n.replace(/ /g,'+')+':wght@400;700&display=swap';document.head.appendChild(l)}})}
 function forms(){
- $$('form.nf').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();var ok=$('.ok',f);
-  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()}).then(function(x){if(!x.ok)throw 0;ok.style.background='var(--teal)';ok.textContent=C.site.form_success;ok.style.display='block';f.reset()}).catch(function(){ok.style.background='var(--rust)';ok.textContent='Something went wrong. Please try again later.';ok.style.display='block'})})});
+ $$('form.nf').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();var ok=$('.ok',f),S=C.site;
+  function show(m,c){ok.style.background=c;ok.textContent=m;ok.style.display='block'}
+  if(!S.form_access_key){show('Forms are not connected yet. The site owner needs to add the form key in the admin page.','var(--rust)');return}
+  var fd=new FormData(f);fd.append('access_key',S.form_access_key);fd.append('subject',f.dataset.subject||'FRAME website form');
+  fetch(S.form_endpoint||'https://api.web3forms.com/submit',{method:'POST',body:fd}).then(function(x){return x.json()}).then(function(j){if(j.success===false)throw 0;show(S.form_success,'var(--teal)');f.reset()}).catch(function(){show('Something went wrong. Please try again later.','var(--rust)')})})});
  $('#rb-tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;$$('#rb-tabs button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});$('#rb-mentor').hidden=b.dataset.f!=='mentor';$('#rb-student').hidden=b.dataset.f!=='student'})}
 Promise.all(FILES.map(function(f){return fetch('content/'+f+'.json').then(function(x){return x.json()}).then(function(j){C[f]=j})}))
 .then(function(){return fetch('posts.json').then(function(x){return x.ok?x.json():[]}).catch(function(){return[]})})
-.then(function(p){posts=p;bind();renderLists();gzInit();forms();addEventListener('hashchange',route);route()})
+.then(function(p){posts=p;theme();bind();renderLists();gzInit();forms();addEventListener('hashchange',route);route()})
 .catch(function(){document.body.insertAdjacentHTML('afterbegin','<p style="padding:2rem">Could not load the site content. If you opened this file directly, run it through a web server or upload it to your host.</p>')});
 })();

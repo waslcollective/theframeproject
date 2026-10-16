@@ -1,10 +1,7 @@
-# >>> EDIT THESE TWO LINES after you create your GitHub repository <<<
 backend:
   name: github
   repo: waslcollective/theframeproject
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
 
 publish_mode: simple
 media_folder: images/uploads
@@ -181,13 +178,28 @@ collections:
               - {label: Name, name: name, widget: string}
               - {label: Role, name: role, widget: string, required: false}
               - {label: Logo, name: logo, widget: image, required: false}
-      - label: Logos and footer
+      - label: Logos, colours and fonts
         name: site
         file: content/site.json
         fields:
           - {label: FRAME logo, name: logo_main, widget: image}
           - {label: Wasl logo, name: logo_wasl, widget: image}
           - {label: Going Together logo, name: logo_gt, widget: image}
+          - label: Colours
+            name: theme
+            widget: object
+            fields:
+              - {label: Page background, name: color_bg, widget: color}
+              - {label: Soft background (alternate sections), name: color_soft, widget: color}
+              - {label: Dark colour (text and footer), name: color_dark, widget: color}
+              - {label: Main accent (headings, buttons), name: color_accent, widget: color}
+              - {label: Teal, name: color_teal, widget: color}
+              - {label: Gold, name: color_gold, widget: color}
+              - {label: Sand, name: color_sand, widget: color}
+              - {label: Headings and menu font, name: font_ui, widget: select, options: ["Bricolage Grotesque", "DM Sans", "Inter", "Space Grotesk", "Work Sans", "Poppins", "Cairo", "Tajawal", "IBM Plex Sans Arabic", "Playfair Display", "Lora", "Newsreader", "Merriweather", "Cormorant Garamond", "Libre Baskerville", "Noto Naskh Arabic"]}
+              - {label: Reading text font, name: font_serif, widget: select, options: ["Bricolage Grotesque", "DM Sans", "Inter", "Space Grotesk", "Work Sans", "Poppins", "Cairo", "Tajawal", "IBM Plex Sans Arabic", "Playfair Display", "Lora", "Newsreader", "Merriweather", "Cormorant Garamond", "Libre Baskerville", "Noto Naskh Arabic"]}
           - {label: Top bar label for the First Edition, name: edition_nav_label, widget: string}
           - {label: Footer text, name: footer_text, widget: string}
           - {label: Message shown after a form is sent, name: form_success, widget: string}
+          - {label: Web3Forms access key (see the guide), name: form_access_key, widget: string, required: false}
+          - {label: Form service address (leave as is unless you switch service), name: form_endpoint, widget: string}

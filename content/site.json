@@ -4,5 +4,18 @@
   "logo_gt": "images/going-together-logo.png",
   "edition_nav_label": "First Edition: Museum of Modern Egyptian Art",
   "footer_text": "Framework for Reimagining Arts and Museum Engagement.",
-  "form_success": "Thank you. Your message has been sent."
+  "form_success": "Thank you. Your message has been sent.",
+  "form_access_key": "",
+  "form_endpoint": "https://api.web3forms.com/submit",
+  "theme": {
+    "color_bg": "#FDF1DC",
+    "color_soft": "#FAE6C4",
+    "color_dark": "#1B2641",
+    "color_accent": "#B23E17",
+    "color_teal": "#3F7A6E",
+    "color_gold": "#D98E1F",
+    "color_sand": "#E0B872",
+    "font_ui": "Bricolage Grotesque",
+    "font_serif": "Newsreader"
+  }
 }
