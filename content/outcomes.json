@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "slug": "vision",
+      "number": "1",
+      "title": "Collective Vision Map + Youth Manifesto",
+      "summary": "The shared vision and manifesto produced with young people.",
+      "link": ""
+    },
+    {
+      "slug": "interventions",
+      "number": "3",
+      "title": "Pilot Interventions",
+      "summary": "",
+      "link": ""
+    },
+    {
+      "slug": "research",
+      "number": "1",
+      "title": "Research Paper",
+      "summary": "The research behind the First Edition.",
+      "link": ""
+    },
+    {
+      "slug": "policy",
+      "number": "1",
+      "title": "Policy Brief",
+      "summary": "Recommendations for cultural policy.",
+      "link": ""
+    },
+    {
+      "slug": "toolkit",
+      "number": "1",
+      "title": "Open-Source Practical Toolkit",
+      "summary": "A toolkit so other institutions can adapt the process.",
+      "link": ""
+    }
+  ]
+}

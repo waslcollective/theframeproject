@@ -1,0 +1,18 @@
+{
+  "heading": "Team & Partners",
+  "intro": "",
+  "members_heading": "Team",
+  "members": [],
+  "partners": [
+    {
+      "name": "Wasl Collective",
+      "role": "Implementing and community partner.",
+      "logo": "images/wasl-logo.png"
+    },
+    {
+      "name": "UNESCO x Seventeen – Going Together",
+      "role": "Supports the First Edition.",
+      "logo": "images/going-together-logo.png"
+    }
+  ]
+}

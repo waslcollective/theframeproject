@@ -1,0 +1,24 @@
+{
+  "art_movement": "To add: the art movement being researched",
+  "artists_heading": "Artists",
+  "artists": [
+    {
+      "slug": "artist-one",
+      "name": "Artist name (example)",
+      "years": "",
+      "bio": "Biography to add.",
+      "findings": "What the team found and verified to add.",
+      "sources": "Sources to add.",
+      "image": ""
+    },
+    {
+      "slug": "artist-two",
+      "name": "Artist name (example)",
+      "years": "",
+      "bio": "Biography to add.",
+      "findings": "",
+      "sources": "",
+      "image": ""
+    }
+  ]
+}

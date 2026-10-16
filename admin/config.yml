@@ -1,0 +1,193 @@
+# >>> EDIT THESE TWO LINES after you create your GitHub repository <<<
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPOSITORY-NAME
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+publish_mode: simple
+media_folder: images/uploads
+public_folder: images/uploads
+
+collections:
+  - name: blog
+    label: Blog posts
+    folder: content/blog
+    create: true
+    extension: md
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: Date, name: date, widget: datetime}
+      - {label: Author, name: author, widget: string, required: false}
+      - {label: Short summary (shown on the blog page), name: summary, widget: text, required: false}
+      - {label: Cover image, name: image, widget: image, required: false}
+      - {label: Text, name: body, widget: markdown}
+
+  - name: edition
+    label: First Edition
+    files:
+      - label: Overview page
+        name: edition
+        file: content/edition.json
+        fields:
+          - {label: Page title, name: title, widget: string}
+          - {label: Introduction, name: intro, widget: text}
+          - {label: About the museum, name: museum_text, widget: text, required: false}
+          - {label: Methodology heading, name: method_heading, widget: string}
+          - {label: Methodology text, name: method_text, widget: text, required: false}
+          - {label: Timeline heading, name: timeline_heading, widget: string}
+          - label: Timeline
+            name: timeline
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - {label: Phase, name: title, widget: string}
+              - {label: Dates, name: dates, widget: string, required: false}
+              - {label: What happened, name: text, widget: text, required: false}
+          - {label: Outcomes heading, name: outcomes_heading, widget: string}
+          - {label: Funding line (under the logo), name: support_text, widget: string}
+      - label: Outcomes (links)
+        name: outcomes
+        file: content/outcomes.json
+        fields:
+          - label: Outcomes
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Number shown, name: number, widget: string}
+              - {label: Short name for the web address (no spaces; keep "interventions" for Pilot Interventions), name: slug, widget: string}
+              - {label: Summary, name: summary, widget: text, required: false}
+              - {label: File to download (PDF) or web link, name: link, widget: file, required: false, choose_url: true}
+      - label: Interventions (overview and descriptions)
+        name: interventions
+        file: content/interventions.json
+        fields:
+          - {label: Heading, name: heading, widget: string}
+          - {label: Intro, name: intro, widget: text}
+          - {label: ExplorEA name, name: exploria_name, widget: string}
+          - {label: ExplorEA card text, name: exploria_card, widget: text}
+          - {label: ExplorEA button text, name: exploria_cta, widget: string}
+          - {label: ExplorEA page intro, name: exploria_intro, widget: text}
+          - {label: Guzur name, name: guzur_name, widget: string}
+          - {label: Guzur card text, name: guzur_card, widget: text}
+          - {label: Guzur button text, name: guzur_cta, widget: string}
+          - {label: Guzur page intro, name: guzur_intro, widget: text}
+          - {label: Robit name, name: robit_name, widget: string}
+          - {label: Robit card text, name: robit_card, widget: text}
+          - {label: Robit button text, name: robit_cta, widget: string}
+          - {label: Robit page intro, name: robit_intro, widget: text}
+      - label: ExplorEA artist pages
+        name: exploria
+        file: content/exploria.json
+        fields:
+          - {label: Art movement being researched, name: art_movement, widget: string, required: false}
+          - {label: Artists heading, name: artists_heading, widget: string}
+          - label: Artists
+            name: artists
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Short name for the web address (no spaces, e.g. mahmoud-said), name: slug, widget: string}
+              - {label: Years, name: years, widget: string, required: false}
+              - {label: Photo or artwork, name: image, widget: image, required: false}
+              - {label: Biography, name: bio, widget: text, required: false}
+              - {label: What the team found and verified, name: findings, widget: text, required: false}
+              - {label: Sources, name: sources, widget: text, required: false}
+      - label: Guzur routes
+        name: guzur
+        file: content/guzur.json
+        fields:
+          - {label: Museum floor plan (image), name: floor_plan, widget: image, required: false}
+          - label: Routes
+            name: routes
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - {label: Route name, name: name, widget: string}
+              - label: Stops (in order)
+                name: stops
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - {label: Artwork title, name: title, widget: string}
+                  - {label: Artist, name: artist, widget: string, required: false}
+                  - {label: Artwork image, name: image, widget: image, required: false}
+                  - {label: Audio narration (mp3), name: audio, widget: file, required: false}
+                  - {label: Narration text, name: text, widget: text, required: false}
+                  - {label: "Position on the floor plan: across (0 = left edge, 100 = right edge)", name: x, widget: number, value_type: int, min: 0, max: 100}
+                  - {label: "Position on the floor plan: down (0 = top edge, 100 = bottom edge)", name: y, widget: number, value_type: int, min: 0, max: 100}
+
+  - name: pages
+    label: Main pages
+    files:
+      - label: The Project (home)
+        name: home
+        file: content/home.json
+        fields:
+          - {label: Main headline, name: hero_title, widget: string}
+          - {label: Intro text, name: hero_text, widget: text}
+          - {label: Button text, name: hero_button, widget: string}
+          - {label: Question heading, name: question_heading, widget: string}
+          - {label: The question, name: question, widget: text}
+          - {label: Text, left column, name: question_left, widget: text}
+          - {label: Text, right column, name: question_right, widget: text}
+          - {label: Phases heading, name: phases_heading, widget: string}
+          - label: Phases
+            name: phases
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - {label: Phase, name: title, widget: string}
+              - {label: Tagline, name: tagline, widget: string}
+          - {label: Note under phases, name: phases_note, widget: text, required: false}
+          - {label: Editions heading, name: editions_heading, widget: string}
+          - {label: Editions text, name: editions_text, widget: text}
+          - {label: Editions button text, name: editions_button, widget: string}
+      - label: Blog page text
+        name: blog_page
+        file: content/blog_page.json
+        fields:
+          - {label: Heading, name: heading, widget: string}
+          - {label: Intro, name: intro, widget: text}
+          - {label: Submission heading, name: submit_heading, widget: string}
+          - {label: Submission text, name: submit_text, widget: text}
+      - label: Team & Partners
+        name: team
+        file: content/team.json
+        fields:
+          - {label: Heading, name: heading, widget: string}
+          - {label: Intro, name: intro, widget: text, required: false}
+          - {label: Team heading, name: members_heading, widget: string}
+          - label: Team members
+            name: members
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Role, name: role, widget: string, required: false}
+              - {label: Short bio, name: bio, widget: text, required: false}
+              - {label: Photo, name: image, widget: image, required: false}
+          - label: Partners
+            name: partners
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Role, name: role, widget: string, required: false}
+              - {label: Logo, name: logo, widget: image, required: false}
+      - label: Logos and footer
+        name: site
+        file: content/site.json
+        fields:
+          - {label: FRAME logo, name: logo_main, widget: image}
+          - {label: Wasl logo, name: logo_wasl, widget: image}
+          - {label: Going Together logo, name: logo_gt, widget: image}
+          - {label: Top bar label for the First Edition, name: edition_nav_label, widget: string}
+          - {label: Footer text, name: footer_text, widget: string}
+          - {label: Message shown after a form is sent, name: form_success, widget: string}

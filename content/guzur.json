@@ -1,0 +1,101 @@
+{
+  "floor_plan": "",
+  "routes": [
+    {
+      "name": "Route 1 (title to add)",
+      "stops": [
+        {
+          "title": "Artwork title 1",
+          "artist": "Artist name",
+          "image": "",
+          "audio": "",
+          "text": "Narration text for this artwork to add.",
+          "x": 20,
+          "y": 25
+        },
+        {
+          "title": "Artwork title 2",
+          "artist": "Artist name",
+          "image": "",
+          "audio": "",
+          "text": "Narration text for this artwork to add.",
+          "x": 50,
+          "y": 45
+        },
+        {
+          "title": "Artwork title 3",
+          "artist": "Artist name",
+          "image": "",
+          "audio": "",
+          "text": "Narration text for this artwork to add.",
+          "x": 78,
+          "y": 30
+        }
+      ]
+    },
+    {
+      "name": "Route 2 (title to add)",
+      "stops": [
+        {
+          "title": "Artwork title 1",
+          "artist": "Artist name",
+          "image": "",
+          "audio": "",
+          "text": "Narration text for this artwork to add.",
+          "x": 22,
+          "y": 70
+        },
+        {
+          "title": "Artwork title 2",
+          "artist": "Artist name",
+          "image": "",
+          "audio": "",
+          "text": "Narration text for this artwork to add.",
+          "x": 50,
+          "y": 55
+        },
+        {
+          "title": "Artwork title 3",
+          "artist": "Artist name",
+          "image": "",
+          "audio": "",
+          "text": "Narration text for this artwork to add.",
+          "x": 80,
+          "y": 72
+        }
+      ]
+    },
+    {
+      "name": "Route 3 (title to add)",
+      "stops": [
+        {
+          "title": "Artwork title 1",
+          "artist": "Artist name",
+          "image": "",
+          "audio": "",
+          "text": "Narration text for this artwork to add.",
+          "x": 18,
+          "y": 45
+        },
+        {
+          "title": "Artwork title 2",
+          "artist": "Artist name",
+          "image": "",
+          "audio": "",
+          "text": "Narration text for this artwork to add.",
+          "x": 48,
+          "y": 22
+        },
+        {
+          "title": "Artwork title 3",
+          "artist": "Artist name",
+          "image": "",
+          "audio": "",
+          "text": "Narration text for this artwork to add.",
+          "x": 82,
+          "y": 48
+        }
+      ]
+    }
+  ]
+}
