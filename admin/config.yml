@@ -1,7 +1,7 @@
 # >>> EDIT THESE TWO LINES after you create your GitHub repository <<<
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/YOUR-REPOSITORY-NAME
+  repo: waslcollective/theframeproject
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
